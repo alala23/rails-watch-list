@@ -1,13 +1,13 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Lists</h1>
+<h1 class="test">Lists</h1>
 
 <div id="lists">
   <% @lists.each do |list| %>
     <%# <%= render list %>
-    <p>
+    <div class="card-category">
       <%= link_to list.name, list_path(list) %>
-    </p>
+    </div>
   <% end %>
 </div>
 

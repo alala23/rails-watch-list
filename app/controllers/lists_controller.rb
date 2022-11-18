@@ -6,6 +6,8 @@ class ListsController < ApplicationController
   end
 
   def show
+    @bookmark = Bookmark.new
+    @review = Review.new(list: @list)
   end
 
   def new
@@ -21,12 +23,15 @@ class ListsController < ApplicationController
     end
   end
 
+  def destroy
+    @list.destroy
+    redirect_to list_path, status: see_other
+  end
 
   def edit
   end
 
   def update
-
   end
 
   private
@@ -36,6 +41,6 @@ class ListsController < ApplicationController
   end
 
   def list_params
-    params.require(:list).permit(:name)
+    params.require(:list).permit(:name, :photo)
   end
 end
